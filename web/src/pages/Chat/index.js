@@ -1,7 +1,8 @@
 import React from 'react';
 
 const Chat = () => {
-  const chatLink = localStorage.getItem('chat_link');
+  const chatLink = 'https://chat.zheyuai.com/'
+  //localStorage.getItem('chat_link');
 
   return (
     <iframe
