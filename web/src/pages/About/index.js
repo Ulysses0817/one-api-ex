@@ -35,7 +35,7 @@ const About = () => {
         aboutLoaded && about === '' ? <>
           <Segment>
             <Header as='h3'>关于</Header>
-            <p>可在设置页面设置关于内容，支持 HTML & Markdown</p>
+            <p>可在[设置页面]-[其他设置]设置首页/关于的内容，支持 HTML & Markdown</p>
             项目仓库地址：
             <a href='https://github.com/Ulysses0817/one-api-ex'>
               https://github.com/Ulysses0817/one-api-ex
