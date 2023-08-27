@@ -8,7 +8,7 @@ const Chat = () => {
   // 从用户对象中获取username
   const username = user ? user.username : null;
   console.log("[localStorage uaername]:", username);
-  const chatLink = localStorage.getItem('chat_link') + `/#/?code=${username}`;
+  const chatLink = localStorage.getItem('chat_link') + `/#/?code=${username}&tight=true`;
 
   return (
     <iframe
