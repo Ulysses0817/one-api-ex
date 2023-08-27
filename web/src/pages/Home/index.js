@@ -69,10 +69,10 @@ const Home = () => {
                       <p>
                         源码：
                         <a
-                          href='https://github.com/songquanpeng/one-api'
+                          href='https://github.com/Ulysses0817/one-api-ex'
                           target='_blank'
                         >
-                          https://github.com/songquanpeng/one-api
+                          https://github.com/Ulysses0817/one-api-ex
                         </a>
                       </p>
                       <p>启动时间：{getStartTimeString()}</p>
