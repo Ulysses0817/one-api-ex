@@ -14,11 +14,6 @@ let headerButtons = [
     icon: 'home'
   },
   {
-    name: '聊天',
-    to: '/chat',
-    icon: 'comments'
-  },
-  {
     name: '渠道',
     to: '/channel',
     icon: 'sitemap',
