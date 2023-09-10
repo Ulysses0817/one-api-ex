@@ -13,11 +13,11 @@ let headerButtons = [
     to: '/',
     icon: 'home'
   },
-  {
-    name: '聊天',
-    to: '/chat',
-    icon: 'comments'
-  },
+  // {
+  //   name: '聊天',
+  //   to: '/chat',
+  //   icon: 'comments'
+  // },
   {
     name: '渠道',
     to: '/channel',
@@ -63,13 +63,13 @@ let headerButtons = [
   }
 ];
 
-// if (localStorage.getItem('chat_link')) {
-//   headerButtons.splice(1, 0, {
-//     name: '聊天',
-//     to: '/chat',
-//     icon: 'comments'
-//   });
-// }
+if (localStorage.getItem('chat_link')) {
+  headerButtons.splice(1, 0, {
+    name: '聊天',
+    to: '/chat',
+    icon: 'comments'
+  });
+}
 
 const Header = () => {
   const [userState, userDispatch] = useContext(UserContext);
