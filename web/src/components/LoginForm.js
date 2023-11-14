@@ -74,7 +74,7 @@ const LoginForm = () => {
           showWarning('请立刻修改默认密码！');
         } else {
           navigate('/token');
-          showSuccess('登录成功！');
+          showSuccess('登录成功！如果没有令牌，请先生成令牌再使用聊天功能！');
         }
       } else {
         showError(message);

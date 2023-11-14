@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Dropdown, Form, Label, Pagination, Popup, Table } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+
 import { API, copy, showError, showSuccess, showWarning, timestamp2string } from '../helpers';
 
 import { ITEMS_PER_PAGE } from '../constants';
@@ -121,6 +122,7 @@ const TokensTable = () => {
   const onOpenLink = async (type, key) => {
     let status = localStorage.getItem('status');
     let serverAddress = '';
+    let navigate = useNavigate();
     if (status) {
       status = JSON.parse(status);
       serverAddress = status.server_address; 
@@ -150,8 +152,9 @@ const TokensTable = () => {
       default:
         url = defaultUrl;
     }
-  
-    window.open(url, '_blank');
+    localStorage.setItem('skey', key);
+    navigate('/chat');
+    // window.open(url, '_blank');
   }
 
   useEffect(() => {

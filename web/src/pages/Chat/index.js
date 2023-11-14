@@ -8,11 +8,23 @@ const Chat = () => {
   // 从用户对象中获取username
   const username = user ? user.username : null;
   console.log("[localStorage uaername]:", username);
-  const chatLink = localStorage.getItem('chat_link') + `/#/?code=${username}&tight=true`;
+
+  const key = localStorage.getItem('skey');
+  console.log("[localStorage key]:", key);
+
+  let defaultUrl;
+
+  if (key) {
+    let serverAddress = "http://localhost:23000"
+    defaultUrl = localStorage.getItem('chat_link') + `/#/?settings={"key":"sk-${key}","url":"${serverAddress}"}`;
+  } else {
+    defaultUrl = localStorage.getItem('chat_link') + `/#/?code=${username}&tight=true`;
+  }
+  console.log("[defaultUrl]:", defaultUrl);
 
   return (
     <iframe
-      src={chatLink}
+      src={defaultUrl}
       style={{ width: '100%', height: '85vh', border: 'none' }}
     />
   );
