@@ -44,6 +44,7 @@ const TokensTable = () => {
   const [searching, setSearching] = useState(false);
   const [showTopUpModal, setShowTopUpModal] = useState(false);
   const [targetTokenIdx, setTargetTokenIdx] = useState(0);
+  let navigate = useNavigate();
 
   const loadTokens = async (startIdx) => {
     const res = await API.get(`/api/token/?p=${startIdx}`);
@@ -122,7 +123,6 @@ const TokensTable = () => {
   const onOpenLink = async (type, key) => {
     let status = localStorage.getItem('status');
     let serverAddress = '';
-    let navigate = useNavigate();
     if (status) {
       status = JSON.parse(status);
       serverAddress = status.server_address; 
