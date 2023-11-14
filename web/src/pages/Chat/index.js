@@ -15,7 +15,7 @@ const Chat = () => {
   let defaultUrl;
 
   if (key) {
-    let serverAddress = "http://localhost:23000"
+    let serverAddress = "https://api.zheyuai.com"
     defaultUrl = localStorage.getItem('chat_link') + `/#/?settings={"key":"sk-${key}","url":"${serverAddress}"}&tight=true`;
   } else {
     defaultUrl = localStorage.getItem('chat_link') + `/#/?code=${username}&tight=true`;
