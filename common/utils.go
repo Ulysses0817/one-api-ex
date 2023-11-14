@@ -171,6 +171,11 @@ func GetTimestamp() int64 {
 	return time.Now().Unix()
 }
 
+func GetTimeString() string {
+	now := time.Now()
+	return fmt.Sprintf("%s%d", now.Format("20060102150405"), now.UnixNano()%1e9)
+}
+
 func Max(a int, b int) int {
 	if a >= b {
 		return a
@@ -187,6 +192,18 @@ func GetOrDefault(env string, defaultValue int) int {
 	if err != nil {
 		SysError(fmt.Sprintf("failed to parse %s: %s, using default value: %d", env, err.Error(), defaultValue))
 		return defaultValue
+	}
+	return num
+}
+
+func MessageWithRequestId(message string, id string) string {
+	return fmt.Sprintf("%s (request id: %s)", message, id)
+}
+
+func String2Int(str string) int {
+	num, err := strconv.Atoi(str)
+	if err != nil {
+		return 0
 	}
 	return num
 }
