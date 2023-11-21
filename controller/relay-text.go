@@ -147,7 +147,9 @@ func relayTextHelper(c *gin.Context, relayMode int) *OpenAIErrorWithStatusCode {
 			model_ = strings.TrimSuffix(model_, "-0301")
 			model_ = strings.TrimSuffix(model_, "-0314")
 			model_ = strings.TrimSuffix(model_, "-0613")
-			fullRequestURL = fmt.Sprintf("%s/openai/deployments/%s/%s", baseURL, model_, task)
+
+			requestURL = fmt.Sprintf("/openai/deployments/%s/%s", model_, task)
+			fullRequestURL = getFullRequestURL(baseURL, requestURL, channelType)
 		}
 	case APITypeClaude:
 		fullRequestURL = "https://api.anthropic.com/v1/complete"
@@ -367,6 +369,8 @@ func relayTextHelper(c *gin.Context, relayMode int) *OpenAIErrorWithStatusCode {
 			}
 		case APITypeTencent:
 			req.Header.Set("Authorization", apiKey)
+		case APITypePaLM:
+			// do not set Authorization header
 		default:
 			req.Header.Set("Authorization", "Bearer "+apiKey)
 		}
